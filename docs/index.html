@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | WebGl_Sandbox</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <script src="Build/docs.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+      //used to be ==> createUnityInstance(document.querySelector("#unity-canvas"), {
+      var gameInstance = createUnityInstance(document.querySelector("#unity-canvas"), {
+
+        dataUrl: "Build/docs.data",
+        frameworkUrl: "Build/docs.framework.js",
+        codeUrl: "Build/docs.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "WebGl_Sandbox",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+
+
+
+
+
+
+      function CommunicationFunction(_text) {
+      gameInstance.then((_unityInstance) => {
+        _unityInstance.SendMessage('HTML_Com', 'InputFromJavascript', _text);
+      });
+
+
+
+
+    }
+
+
+</script>
+<div>
+
+
+  <div class="flex-container">
+
+    <div class="keyboard">
+      <div class="top-row">
+        <div  class="key" onclick="CommunicationFunction('W')">
+          <p>👆</p>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="key" onclick="CommunicationFunction('A')">
+          <p>👈</p>
+        </div>
+        <div  class="key" onclick="CommunicationFunction('S')">
+          <p>👇</p>
+        </div>
+        <div class="key" onclick="CommunicationFunction('D')">
+          <p>👉</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="keyboard">
+      <div class="top-row">
+        <div  class="key large" onclick="CommunicationFunction('Fire')">
+          <p>fire</p>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="key large" onclick="CommunicationFunction('Jump')">
+          <p>Jump</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+
+    .flex-container {
+      display: flex;
+    }
+
+    .flex-child {
+      flex: 1;
+      border: 2px solid yellow;
+    }
+
+    .flex-child:first-child {
+      margin-right: 20px;
+    }
+    
+    /* Import Font from Google Fonts */
+    @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+
+    /* Sets font to "Share Tech Mono' */
+    body {
+      font-family: "Share Tech Mono", monospace;
+    }
+
+    /* Style for the message container */
+    .message-container {
+      padding-top: 2.5em;
+      text-align: center;
+    }
+
+    /* Keyboard style */
+    .keyboard {
+      padding: 2.5em 0;
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    /* Top row for keyboard */
+    .top-row {
+      width: 140px;
+      /* Off Centered */
+      /* width: 190px; */
+      margin: 0 auto;
+    }
+
+    /* Bottom row for keyboard */
+    .bottom-row {
+      display: inline-flex;
+    }
+
+    /* Style for each Key */
+    .key {
+      background-color: #353943;
+      border: 1px solid #834426;
+      box-shadow: 5px 5px #c2b7ab;
+      color: #ffffff;
+      width: 100px;
+      margin: 15px;
+      text-align: center;
+      top: 0;
+      left: 0;
+      transition: all 0.07s ease;
+    }
+
+    .key:hover {
+      background-color: #3e8e41
+    }
+
+    .key:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+
+    /* Active Class for Key */
+    .activeKey {
+      transform: scale(1.1);
+      position: relative;
+      top: 0.2em;
+      left: 0.2em;
+      box-shadow: 0 0 0 0;
+    }
+
+    /* Sets font size for each Key */
+    .key>p {
+      font-size: 2em;
+    }
+
+    .large {
+      width: 240px;
+    }
+
+  </style>
+
+
+</div>
+
+</body>
+
+</html>
+
