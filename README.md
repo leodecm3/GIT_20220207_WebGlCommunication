@@ -38,7 +38,7 @@ var gameInstance = createUnityInstance(document.querySelector("#unity-canvas"), 
 2. Inside the template, create a function to interact with the C#
    
 ```js
-      function ComunicationFunction(_text) {
+      function CommunicationFunction(_text) {
       gameInstance.then((_unityInstance) => {
         _unityInstance.SendMessage('HTML_Com', 'InputFromJavascript', _text);
         //_unityInstance.SendMessage(<Game object name>, <Public function at this Game object>, <Variable>);
@@ -53,7 +53,7 @@ The only way to interact is by retrieving the promise. A simple **unityInstance.
 3. Inside the HTML template create a simple button
 
 ```HTML
-<div  class="key" onclick="ComunicationFunction('W')">
+<div  class="key" onclick="CommunicationFunction('W')">
 ```
 
 <br />
