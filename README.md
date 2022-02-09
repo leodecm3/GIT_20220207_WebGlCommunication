@@ -15,7 +15,8 @@ Unity version 2021.2.10f1
 
 30 fps gifs, showcasing communication between Javascript and Unity:
 
-![gif](https://imgur.com/oEbGhyu.gif?raw=true)
+<img src="https://imgur.com/oEbGhyu.gif?raw=true">
+
 
 <br />
 
