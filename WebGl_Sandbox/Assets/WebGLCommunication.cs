@@ -1,19 +1,14 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class WebGLCommunication : MonoBehaviour
 {
 
     [SerializeField] private StarterAssetsInputs starterAssetsInputs;
-
     private float SecondsToStopInput = 0.5f;
-
-  private float lookMultiplier=20;
-
-
+    private float lookMultiplier=20;
 
     public void InputFromJavascript(string _inputtedString) {
 
@@ -50,15 +45,7 @@ public class WebGLCommunication : MonoBehaviour
             break;
             default:
             break;
-        }
-
-
-
-        if (_inputtedString == "W") {
-            starterAssetsInputs.MoveInput(Vector2.up);
-        }
-
-       
+        }     
 
     }
 
